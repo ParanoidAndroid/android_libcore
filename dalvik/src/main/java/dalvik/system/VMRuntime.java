@@ -127,31 +127,6 @@ public final class VMRuntime {
     }
 
     /**
-     * @hide
-     */
-    public float setTargetHeapMinFree(int size) {
-        /* Synchronize to make sure that only one thread gets
-         * a given "old" value if both update at the same time.
-         * Allows for reliable save-and-restore semantics.
-         */
-        synchronized (this) {
-            return nativeSetTargetHeapMinFree(size);
-        }
-    }
-    /**
-     * @hide
-     */
-    public float setTargetHeapConcurrentStart(int size) {
-        /* Synchronize to make sure that only one thread gets
-         * a given "old" value if both update at the same time.
-         * Allows for reliable save-and-restore semantics.
-         */
-        synchronized (this) {
-            return nativeSetTargetHeapConcurrentStart(size);
-        }
-    }
-
-    /**
      * Sets the target SDK version. Should only be called before the
      * app starts to run, because it may change the VM's behavior in
      * dangerous ways. Use 0 to mean "current" (since callers won't
